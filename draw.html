@@ -1,6 +1,6 @@
 <html>
 
-<body >
+<body>
 
     <canvas id="myCanvas" onmousedown="mouseDown(event)" onmousemove="mouseMove(event)" onmouseup="mouseUp(event)" onmouseout="mouseOut()" width="600" height="600 " style="border:1px solid #c3c3c3;">
         Your browser does not support the HTML5 canvas tag.
@@ -33,8 +33,6 @@
             paint = true;
             addList(x, y, false);
             redraw();
-            var coords = "X coords: " + x + ", Y coords: " + y;
-            document.getElementById("demo").innerHTML = coords;
         }
 
         function mouseMove(event) {
@@ -45,25 +43,26 @@
             if (paint) {
                 addList(x, y, true);
             }
-
             redraw();
 
         }
 
         function mouseUp(event) {
-            var x = event.clientX;
-            var y = event.clientY;
+			listX = [];
+            listY = [];
+			listDrag = [];
             paint = false;
-            var coords = "X coords: " + x + ", Y coords: " + y;
-            document.getElementById("demo").innerHTML = coords;
         }
 
         function mouseOut() {
+			listX = [];
+            listY = [];
+			listDrag = [];
+            paint = false;
             document.getElementById("demo").innerHTML = "";
         }
 
         function redraw() {
-            ctx.clearRect(0, 0, 600, 600);
             ctx.beginPath();
             ctx.lineWidth = 10;
             ctx.lineJoin = "round";
