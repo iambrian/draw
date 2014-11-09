@@ -44,7 +44,9 @@
                 addList(x, y, true);
             }
             redraw();
-
+			listX.shift();
+            listY.shift();
+			listDrag.shift();
         }
 
         function mouseUp(event) {
